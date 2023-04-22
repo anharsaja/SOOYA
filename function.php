@@ -5,11 +5,6 @@ session_start();
 $conn = mysqli_connect("localhost", "root", "", "stockbarang");
 
 
-//menambah akun user
-if (isset($_POST['register'])) {
-    $username = $_POST['username'];
-    
-}
 
 //Menambah barang baru
 if (isset($_POST['addnewbarang'])) {

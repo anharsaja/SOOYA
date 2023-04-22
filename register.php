@@ -15,6 +15,13 @@ require 'function.php';
 </head>
 
 <body>
+<?php
+    if (isset($_GET['pesan'])) {
+        if ($_GET['pesan'] == "gagal") {
+            echo "<div class='alert'>Username dan Password Salah !</div>";
+        }
+    }
+    ?>
 
     <div class="login-card-container">
         <div class="login-card">
@@ -24,7 +31,7 @@ require 'function.php';
             <div class="login-card-header">
                 <h1>Register</h1>
             </div>
-            <form class="login-card-form">
+            <form class="login-card-form" action="cek-register.php" method="post">
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">person</span>
                     <input type="text" name="username" placeholder="Enter Username" id="username" autofocus required>

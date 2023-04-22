@@ -1,7 +1,6 @@
 <?php
 //import koneksi
 require 'function.php';
-// require 'cek.php';
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +21,7 @@ require 'function.php';
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="stock.php">G U D A N G</a>
+        <a class="navbar-brand" href="produk-user.php">G U D A N G</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
     </nav>
     <div id="layoutSidenav">
@@ -31,20 +30,10 @@ require 'function.php';
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">MENU</div>
-                        <a class="nav-link" href="produk-admin.php">
+                        <a class="nav-link" href="produk-user.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Stock Gudang
                         </a>
-<!-- 
-                        <a class="nav-link" href="masuk.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Barang Masuk
-                        </a>
-
-                        <a class="nav-link" href="keluar.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Barang Keluar
-                        </a> -->
 
                         <a class="nav-link" href="logout.php">
                             Log Out
