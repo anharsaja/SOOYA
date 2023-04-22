@@ -38,7 +38,7 @@ require 'function.php';
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">mail</span>
-                    <input type="text" name="email" placeholder="Enter Email" id="emailForm" autofocus required>
+                    <input type="email" name="email" placeholder="Enter Email" id="emailForm" autofocus required>
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">lock</span>
