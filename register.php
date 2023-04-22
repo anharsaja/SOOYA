@@ -1,6 +1,5 @@
 <?php
-//import koneksi
-// require 'function.php';
+require 'function.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +19,7 @@
     <div class="login-card-container">
         <div class="login-card">
             <div class="login-card-logo">
-                <img src="logo3.png" alt="logo">
+                <img src="soonya.png" alt="logo">
             </div>
             <div class="login-card-header">
                 <h1>Register</h1>
