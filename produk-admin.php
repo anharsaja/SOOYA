@@ -30,7 +30,10 @@ require 'function.php';
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
+
+
                         <div class="sb-sidenav-menu-heading">MENU</div>
+
                         <a class="nav-link" href="produk-admin.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Stock Gudang
@@ -46,9 +49,18 @@ require 'function.php';
                             Barang Keluar
                         </a>
 
-                        <a class="nav-link" href="logout.php">
-                            Log Out
+                        <br><br><br><br>
+                        <a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#admin-register">
+                                Admin Register
+                            </button>
                         </a>
+                        <a href="logout.php">
+                            <button type="button" class="btn btn-primary">
+                                Logout
+                            </button>
+                        </a>
+
 
                     </div>
                 </div>
@@ -62,8 +74,9 @@ require 'function.php';
                         <div class="card-header">
                             <!-- Button to Open the Modal -->
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                Add
+                                Add Items
                             </button>
+
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -187,6 +200,32 @@ require 'function.php';
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title">Tambah Data Barang</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <form method="post">
+                <div class="modal-body">
+                    <input type="text" name="idbarang" placeholder="ID Barang" class="form-control" required>
+                    <br>
+                    <input type="text" name="namabarang" placeholder="Nama Barang" class="form-control" required>
+                    <br>
+                    <input type="number" name="stock" placeholder="Stock" class="form-control" required>
+                    <br>
+                    <button type="submit" class="btn btn-primary" name="addnewbarang">Submit</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="admin-register">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Tambah Akun Admin</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
