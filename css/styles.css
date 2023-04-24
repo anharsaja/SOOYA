@@ -11238,3 +11238,8 @@ body {
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
 }
+
+
+.login-card-logo img {
+  width: 50px;
+}

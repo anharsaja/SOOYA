@@ -13,8 +13,8 @@ require 'function.php';
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Stock Gudang</title>
-    <link rel="icon" type="png" href="assets/img/warehouse.png">
+    <title>Barang Masuk</title>
+    <link rel="icon" type="png" href="assets/img/in-stock.png">
     <link href="css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
@@ -22,16 +22,8 @@ require 'function.php';
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="produk-admin.php">
-            DAFTAR PRODUK
-        </a>
+        <a class="navbar-brand" href="masuk.php">G U D A N G</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-        <br><br><br><br><br><br><br><br>
-        <a>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#admin-register">
-                Admin Register
-            </button>
-        </a>
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
@@ -39,7 +31,9 @@ require 'function.php';
                 <div class="sb-sidenav-menu">
                     <div class="nav">
 
-                        <div class="sb-sidenav-menu-heading"><h5>AKUN</h5></div>
+                        <div class="sb-sidenav-menu-heading">
+                            <h5>AKUN</h5>
+                        </div>
                         <a class="nav-link" href="#">
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
                             Akun Admin
@@ -50,8 +44,10 @@ require 'function.php';
                         </a>
 
                         <br>
-                        <div class="sb-sidenav-menu-heading"><h5>JUAL BELI</h5></div>
-                        
+                        <div class="sb-sidenav-menu-heading">
+                            <h5>JUAL BELI</h5>
+                        </div>
+
                         <a class="nav-link" href="produk-admin.php">
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
                             Daftar Produk
@@ -66,7 +62,9 @@ require 'function.php';
                         </a>
 
                         <br>
-                        <div class="sb-sidenav-menu-heading"><h5>MONITORING</h5></div>
+                        <div class="sb-sidenav-menu-heading">
+                            <h5>MONITORING</h5>
+                        </div>
 
                         <a class="nav-link" href="barang-masuk.php">
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
@@ -88,48 +86,47 @@ require 'function.php';
 
                     </div>
                 </div>
-
             </nav>
         </div>
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Stock Gudang</h1>
+                    <h1 class="mt-4">Barang Masuk</h1>
                     <div class="card mb-4">
                         <div class="card-header">
                             <!-- Button to Open the Modal -->
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                Add Items
+                                Add
                             </button>
-
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>Tanggal</th>
                                             <th>Kode Barang</th>
                                             <th>Nama Barang</th>
-                                            <th>Stock</th>
+                                            <th>Jumlah</th>
                                             <th>Option</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-
                                         <?php
-                                        $ambilsemuadatastock = mysqli_query($conn, "select * from stock");
+                                        $ambilsemuadatastock = mysqli_query($conn, "select * from masuk m, stock s where s.idbarang = m.idbarang");
                                         while ($data = mysqli_fetch_array($ambilsemuadatastock)) {
-                                            $namabarang = $data['namabarang'];
-                                            $stock = $data['stock'];
                                             $idb = $data['idbarang'];
-                                            $idbarang = $data['idbarang'];
+                                            $tanggal = $data['tanggal'];
+                                            $namabarang = $data['namabarang'];
+                                            $qty = $data['qty'];
                                         ?>
 
                                             <tr>
-                                                <td><?= $idbarang ?></td>
+                                                <td><?= $tanggal; ?></td>
+                                                <td><?= $idb; ?></td>
                                                 <td><?= $namabarang; ?></td>
-                                                <td><?= $stock; ?></td>
+                                                <td><?= $qty; ?></td>
                                                 <td>
                                                     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $idb; ?>">
                                                         Edit
@@ -153,14 +150,12 @@ require 'function.php';
                                                         <!-- Modal body -->
                                                         <form method="post">
                                                             <div class="modal-body">
-                                                                <input type="text" name="idbarang" value="<?= $idbarang; ?>" class="form-control" required>
+                                                                <input type="text" name="idbarang" value="<?= $idb; ?>" class="form-control" required>
                                                                 <br>
-                                                                <input type="text" name="namabarang" value="<?= $namabarang; ?>" class="form-control" required>
-                                                                <br>
-                                                                <input type="text" name="stock" value="<?= $stock; ?>" class="form-control" required>
+                                                                <input type="number" name="qty" value="<?= $qty; ?>" class="form-control" required>
                                                                 <br>
                                                                 <input type="hidden" name="idb" value="<?= $idb; ?>">
-                                                                <button type="submit" class="btn btn-primary" name="updatebarang">Submit</button>
+                                                                <button type="submit" class="btn btn-primary" name="updatebarangmasuk">Submit</button>
                                                             </div>
                                                         </form>
 
@@ -182,11 +177,12 @@ require 'function.php';
                                                         <!-- Modal body -->
                                                         <form method="post">
                                                             <div class="modal-body">
-                                                                Apakah anda yakin ingin menghapus <b><?= $namabarang; ?></b>?
+                                                                Apakah anda yakin ingin menghapus <b><?= $namabarang; ?></b> dari daftar barang Masuk?
                                                                 <input type="hidden" name="idb" value="<?= $idb; ?>">
+                                                                <input type="hidden" name="qty" value="<?= $qty; ?>">
                                                                 <br>
                                                                 <br>
-                                                                <button type="submit" class="btn btn-danger" name="hapusbarang">Submit</button>
+                                                                <button type="submit" class="btn btn-danger" name="hapusbarangmasuk">Submit</button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -197,7 +193,6 @@ require 'function.php';
                                         };
                                         ?>
 
-
                                     </tbody>
                                 </table>
                             </div>
@@ -206,6 +201,23 @@ require 'function.php';
                 </div>
             </main>
 
+
+
+            <!-- Bisa diisi dengan median sosial pengguna atau medsis perusahaan, kalau 
+                website hanya untuk admin berarti tidak usah dikasih footer atau copyright-->
+
+            <!-- <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer> -->
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
@@ -218,52 +230,37 @@ require 'function.php';
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/datatables-demo.js"></script>
 </body>
-<!-- The Modal -->
 <div class="modal fade" id="myModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Tambah Data Barang</h4>
+                <h4 class="modal-title">Tambah Barang Masuk</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
             <!-- Modal body -->
             <form method="post">
                 <div class="modal-body">
-                    <input type="text" name="idbarang" placeholder="ID Barang" class="form-control" required>
-                    <br>
-                    <input type="text" name="namabarang" placeholder="Nama Barang" class="form-control" required>
-                    <br>
-                    <input type="number" name="stock" placeholder="Stock" class="form-control" required>
-                    <br>
-                    <button type="submit" class="btn btn-primary" name="addnewbarang">Submit</button>
-                </div>
-            </form>
+                    <select name="barangnya" class="form-control">
+                        <?php
+                        $ambilsemuadatanya = mysqli_query($conn, "select * from stock");
+                        while ($fetcharray = mysqli_fetch_array($ambilsemuadatanya)) {
+                            $idbarangnya = $fetcharray['idbarang'];
 
-        </div>
-    </div>
-</div>
+                        ?>
 
-<div class="modal fade" id="admin-register">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Tambah Akun Admin</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
+                            <option value="<?= $idbarangnya; ?>"><?= $idbarangnya; ?></option>
 
-            <!-- Modal body -->
-            <form method="post">
-                <div class="modal-body">
-                    <input type="text" name="idbarang" placeholder="ID Barang" class="form-control" required>
+                        <?php
+                        }
+                        ?>
+                    </select>
                     <br>
-                    <input type="text" name="namabarang" placeholder="Nama Barang" class="form-control" required>
+
+                    <input type="number" name="qty" placeholder="Quantity" class="form-control" required>
                     <br>
-                    <input type="number" name="stock" placeholder="Stock" class="form-control" required>
-                    <br>
-                    <button type="submit" class="btn btn-primary" name="addnewbarang">Submit</button>
+                    <button type="submit" class="btn btn-primary" name="barangmasuk">Submit</button>
                 </div>
             </form>
 
