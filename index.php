@@ -22,7 +22,7 @@
     <div class="login-card-container">
         <div class="login-card">
             <div class="login-card-logo">
-                <img src="soonya.png" alt="logo">
+                <img src="sooya.png" alt="logo">
             </div>
             <div class="login-card-header">
                 <h1>Sign In</h1>
