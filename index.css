@@ -6,7 +6,6 @@ body {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
     background: linear-gradient(to right, #1a801e, #ff00cc);
-    /* background: url('/images/sonyabg.png'); */
     display: flex;
     justify-content: center;
     align-items: center;
