@@ -88,7 +88,7 @@ require 'function.php';
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">ADMIN ACCOUNT</h1>
+                    <h1 class="mt-4">CUSTOMER ACCOUNT</h1>
                     <div class="card mb-4">
                         <div class="card-header">
                             <!-- Button to Open the Modal -->
@@ -215,7 +215,7 @@ require 'function.php';
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Tambah Akun Admin</h4>
+                <h4 class="modal-title">Tambah Akun Customer</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
