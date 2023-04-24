@@ -6,6 +6,103 @@ $conn = mysqli_connect("localhost", "root", "", "stockbarang");
 
 
 
+
+//menghapus akun admin  
+if (isset($_POST['hapus-akun-admin'])) {
+    $iduser = $_POST['iduser'];
+    $hapus = mysqli_query($conn, "delete from login where iduser='$iduser'");
+    if ($hapus) {
+        header('location:akun-admin.php');
+    } else {
+        echo 'Gagal';
+        header('location:akun-admin.php');
+    }
+}
+
+//update info akun admin
+if (isset($_POST['update-akun-admin'])) {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $iduser = $_POST['iduser'];
+
+    $update = mysqli_query($conn, "update login set username='$username', email='$email', password='$password' where iduser='$iduser'");
+    if ($update) {
+        header('location:akun-admin.php');
+    } else {
+        echo 'Gagal';
+        header('location:akun-admin.php');
+    }
+}
+
+//Menambah akun admin baru
+if (isset($_POST['tambah-akun-admin'])) {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $addtotable = mysqli_query($conn, "insert into login (username, email, password, level) values('$username','$email','$password', 'admin')");
+    if ($addtotable) {
+        echo "sukses";
+        header('location:akun-admin.php');
+    } else {
+        echo 'Gagal';
+        header('location:akun-admin.php');
+    }
+}; 
+
+//==============================================================================================================//
+
+
+//menghapus akun customer  
+if (isset($_POST['hapus-akun-customer'])) {
+    $iduser = $_POST['iduser'];
+    $hapus = mysqli_query($conn, "delete from login where iduser='$iduser'");
+    if ($hapus) {
+        header('location:akun-customer.php');
+    } else {
+        echo 'Gagal';
+        header('location:akun-customer.php');
+    }
+}
+
+//update info akun customer
+if (isset($_POST['update-akun-customer'])) {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $iduser = $_POST['iduser'];
+
+    $update = mysqli_query($conn, "update login set username='$username', email='$email', password='$password' where iduser='$iduser'");
+    if ($update) {
+        header('location:akun-customer.php');
+    } else {
+        echo 'Gagal';
+        header('location:akun-customer.php');
+    }
+}
+
+//Menambah akun customer baru
+if (isset($_POST['tambah-akun-customer'])) {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $addtotable = mysqli_query($conn, "insert into login (username, email, password, level) values('$username','$email','$password', 'user')");
+    if ($addtotable) {
+        echo "sukses";
+        header('location:akun-customer.php');
+    } else {
+        echo 'Gagal';
+        header('location:akun-customer.php');
+    }
+}; 
+
+
+
+
+
+
 //Menambah barang baru
 if (isset($_POST['addnewbarang'])) {
     $idbarang = $_POST['idbarang'];
