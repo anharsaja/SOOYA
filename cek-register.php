@@ -17,13 +17,13 @@ $haveaccount = mysqli_query($koneksi, "SELECT * FROM login WHERE username='$user
 $cek = mysqli_num_rows($haveaccount);
 
 // cek apakah username dan password di temukan pada database
-if ($cek > 0) {
+if ($cek == 0) {
 
+    mysqli_query($koneksi, "insert into login (username, email, password, level) values('$username','$email','$password','user')");
+    echo "sukses";
+    header('location:index.php');
+
+} else {  
     echo "gagal";
     header('location:register.php');
-
-} else {
-    $addtoaccount =  mysqli_query($koneksi, "insert into login (username, email, password, level) values('$username','$email','$password','user')");
-    echo "sukses";
-    header('location:index.php');   
 }
