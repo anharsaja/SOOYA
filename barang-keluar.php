@@ -34,16 +34,18 @@ require 'function.php';
                         <div class="sb-sidenav-menu-heading">
                             <h5>AKUN</h5>
                         </div>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="akun-admin.php">
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
                             Akun Admin
                         </a>
-                        <a class="nav-link" href="#">
+
+                        <a class="nav-link" href="akun-customer.php">
                             <div class="sb-nav-link-icon"></div>
                             Akun Customer
                         </a>
 
                         <br>
+
                         <div class="sb-sidenav-menu-heading">
                             <h5>JUAL BELI</h5>
                         </div>
@@ -52,16 +54,19 @@ require 'function.php';
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
                             Daftar Produk
                         </a>
-                        <a class="nav-link" href="#">
+
+                        <a class="nav-link" href="pemesanan.php">
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
                             Daftar Pemesanan
                         </a>
+
                         <a class="nav-link" href="#">
                             <div class="sb-nav-link-icon"></div>
                             Riwayat Penjualan
                         </a>
 
                         <br>
+
                         <div class="sb-sidenav-menu-heading">
                             <h5>MONITORING</h5>
                         </div>
