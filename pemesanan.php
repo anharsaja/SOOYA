@@ -130,7 +130,7 @@ require 'function.php';
                                             $idb = $data['idbarang'];
                                             $idbarang = $data['idbarang'];
                                         ?>
-
+<!-- 
                                             <tr>
                                                 <td><?= $idbarang ?></td>
                                                 <td><?= $namabarang; ?></td>
@@ -143,7 +143,7 @@ require 'function.php';
                                                         Delete
                                                     </button>
                                                 </td>
-                                            </tr>
+                                            </tr> -->
 
                                             <!-- Edit Modal -->
                                             <div class="modal fade" id="edit<?= $idb; ?>">
