@@ -26,12 +26,6 @@ require 'function.php';
             DAFTAR PRODUK
         </a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-        <br><br><br><br><br><br><br><br>
-        <a>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#admin-register">
-                Admin Register
-            </button>
-        </a>
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
@@ -39,7 +33,9 @@ require 'function.php';
                 <div class="sb-sidenav-menu">
                     <div class="nav">
 
-                        <div class="sb-sidenav-menu-heading"><h5>AKUN</h5></div>
+                        <div class="sb-sidenav-menu-heading">
+                            <h5>AKUN</h5>
+                        </div>
                         <a class="nav-link" href="akun-admin.php">
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
                             Akun Admin
@@ -50,8 +46,10 @@ require 'function.php';
                         </a>
 
                         <br>
-                        <div class="sb-sidenav-menu-heading"><h5>JUAL BELI</h5></div>
-                        
+                        <div class="sb-sidenav-menu-heading">
+                            <h5>JUAL BELI</h5>
+                        </div>
+
                         <a class="nav-link" href="produk-admin.php">
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
                             Daftar Produk
@@ -66,7 +64,9 @@ require 'function.php';
                         </a>
 
                         <br>
-                        <div class="sb-sidenav-menu-heading"><h5>MONITORING</h5></div>
+                        <div class="sb-sidenav-menu-heading">
+                            <h5>MONITORING</h5>
+                        </div>
 
                         <a class="nav-link" href="barang-masuk.php">
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
