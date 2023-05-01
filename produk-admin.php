@@ -116,6 +116,7 @@ require 'function.php';
                                             <th>Kode Barang</th>
                                             <th>Nama Barang</th>
                                             <th>Stock</th>
+                                            <th>Harga Satuan</th>
                                             <th>Option</th>
                                         </tr>
                                     </thead>
@@ -129,12 +130,14 @@ require 'function.php';
                                             $stock = $data['stock'];
                                             $idb = $data['idbarang'];
                                             $idbarang = $data['idbarang'];
+                                            $harga = $data['harga']
                                         ?>
 
                                             <tr>
                                                 <td><?= $idbarang ?></td>
                                                 <td><?= $namabarang; ?></td>
                                                 <td><?= $stock; ?></td>
+                                                <td><?= $harga; ?></td>
                                                 <td>
                                                     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $idb; ?>">
                                                         Edit
@@ -241,6 +244,8 @@ require 'function.php';
                     <input type="text" name="namabarang" placeholder="Nama Barang" class="form-control" required>
                     <br>
                     <input type="number" name="stock" placeholder="Stock" class="form-control" required>
+                    <br>
+                    <input type="number" name="harga" placeholder="Harga satuan" class="form-control" required>
                     <br>
                     <button type="submit" class="btn btn-primary" name="addnewbarang">Submit</button>
                 </div>

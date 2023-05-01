@@ -100,7 +100,7 @@ if (isset($_POST['tambah-akun-customer'])) {
 
 
 
-
+# =======================================================================================================================
 
 
 //Menambah barang baru
@@ -108,8 +108,9 @@ if (isset($_POST['addnewbarang'])) {
     $idbarang = $_POST['idbarang'];
     $namabarang = $_POST['namabarang'];
     $stock = $_POST['stock'];
+    $harga = $_POST['harga'];
 
-    $addtotable = mysqli_query($conn, "insert into stock (idbarang, namabarang, stock) values('$idbarang','$namabarang','$stock')");
+    $addtotable = mysqli_query($conn, "insert into stock (idbarang, namabarang, stock, harga) values('$idbarang','$namabarang','$stock','$harga')");
     if ($addtotable) {
         echo "sukses";
         header('location:produk-admin.php');
