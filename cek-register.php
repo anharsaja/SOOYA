@@ -20,7 +20,6 @@ $cek = mysqli_num_rows($haveaccount);
 if ($cek == 0) {
 
     mysqli_query($koneksi, "insert into login (username, email, password, level) values('$username','$email','$password','user')");
-    echo "sukses";
     header('location:index.php');
 
 } else {  

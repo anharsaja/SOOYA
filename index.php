@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,11 +14,6 @@
 
 <body>
     <?php
-    if (isset($_GET['pesan'])) {
-        if ($_GET['pesan'] == "gagal") {
-            echo "<div class='alert'>Username dan Password Salah !</div>";
-        }
-    }
     ?>
 
     <div class="login-card-container">
