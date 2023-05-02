@@ -29,67 +29,43 @@ require 'function.php';
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
-                    <div class="nav">
+                <div class="nav">
 
-                        <div class="sb-sidenav-menu-heading">
-                            <h5>AKUN</h5>
-                        </div>
-                        <a class="nav-link" href="akun-admin.php">
-                            <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
-                            Akun Admin
-                        </a>
 
-                        <a class="nav-link" href="akun-customer.php">
-                            <div class="sb-nav-link-icon"></div>
-                            Akun Customer
-                        </a>
+<div class="sb-sidenav-menu-heading">
+    <h5>JUAL BELI</h5>
+</div>
 
-                        <br>
+<a class="nav-link" href="produk-user.php">
+    <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
+    Daftar Produk
+</a>
 
-                        <div class="sb-sidenav-menu-heading">
-                            <h5>JUAL BELI</h5>
-                        </div>
+<a class="nav-link" href="pemesanan-user.php">
+    <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
+    Daftar Pemesanan
+</a>
 
-                        <a class="nav-link" href="produk-admin.php">
-                            <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
-                            Daftar Produk
-                        </a>
+<a class="nav-link" href="riwayat-user.php">
+    <div class="sb-nav-link-icon"></div>
+    Riwayat Penjualan
+</a>
 
-                        <a class="nav-link" href="pemesanan.php">
-                            <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
-                            Daftar Pemesanan
-                        </a>
+</div>
+<div class="nav">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="card-header">
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Ubah Data Akun
+    </button>
+</div>
+<a class="nav-link" href="logout.php">
+    <div class="sb-nav-link-icon"></i></div>
+    Logout
+</a>
 
-                        <a class="nav-link" href="#">
-                            <div class="sb-nav-link-icon"></div>
-                            Riwayat Penjualan
-                        </a>
-
-                        <br>
-
-                        <div class="sb-sidenav-menu-heading">
-                            <h5>MONITORING</h5>
-                        </div>
-
-                        <a class="nav-link" href="barang-masuk.php">
-                            <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
-                            Bahan Masuk
-                        </a>
-
-                        <a class="nav-link" href="barang-keluar.php">
-                            <div class="sb-nav-link-icon"></div>
-                            Bahan Keluar
-                        </a>
-
-                    </div>
-                    <div class="nav">
-                        <br><br><br><br><br><br><br><br><br>
-                        <a class="nav-link" href="logout.php">
-                            <div class="sb-nav-link-icon"></i></div>
-                            Logout
-                        </a>
-
-                    </div>
+</div>
                 </div>
             </nav>
         </div>
