@@ -34,16 +34,17 @@
                     <input type="password" name="password" placeholder="Enter Password" id="passwordForm" required>
                 </div>
                 <div class="form-item-other">
-                    <div class="checkbox">
-                        <input type="checkbox" id="rememberMeCheckbox" checked>
-                        <label for="rememberMeCheckbox">Remember me</label>
-                    </div>
                     <a href="forgot.php">I forgot my password!</a>
                 </div>
                 <button type="submit" name="login">Sign In</button>
+                <div class="guest">
+                    <a href="produk-user.php">
+                        <span name="guest">Guest</span>
+                    </a>
+                </div>
             </form>
             <div class="login-card-footer">
-                Don't have an account? <a href="register.php">Create a free account.</a>
+                <!-- Don't have an account? <a href="register.php">Create a free account.</a> -->
             </div>
         </div>
     </div>
