@@ -68,7 +68,7 @@ require 'function.php';
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <div class="card-header">
                             <!-- Button to Open the Modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ubah-akun">
                                 Ubah Data Akun
                             </button>
                         </div>
@@ -162,6 +162,36 @@ require 'function.php';
                     <input type="number" name="stock" placeholder="Stock" class="form-control" required>
                     <br>
                     <button type="submit" class="btn btn-primary" name="tambah-bahan-masuk">Submit</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- mengubah data akun user -->
+
+<div class="modal fade" id="ubah-akun">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Ubah Data Akunmu</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <form method="post">
+                <div class="modal-body">
+                    <input type="text" name="username" placeholder="Username Baru" class="form-control" required>
+                    <br>
+                    <input type="text" name="email" placeholder="Email Baru" class="form-control" required>
+                    <br>
+                    <input type="password" name="password" placeholder="Password Baru" class="form-control" required>
+                    <br>
+                    <input type="password" name="password-old" placeholder="Password Lama" class="form-control" required>
+                    <br>
+                    <button type="submit" class="btn btn-primary" name="ubah-akun-user">Submit</button>
                 </div>
             </form>
 

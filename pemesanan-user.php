@@ -27,7 +27,7 @@ require 'function.php';
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
 
@@ -66,7 +66,7 @@ require 'function.php';
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <div class="card-header">
                             <!-- Button to Open the Modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ubah-akun">
                                 Ubah Data Akun
                             </button>
                         </div>
@@ -84,7 +84,7 @@ require 'function.php';
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Barang Keluar</h1>
+                    <h1 class="mt-4">PEMESANAN</h1>
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
@@ -95,17 +95,21 @@ require 'function.php';
                                             <th>Nama Barang</th>
                                             <th>Jumlah</th>
                                             <th>Pembeli</th>
+                                            <th>Alamat</th>
                                             <th>Harga Satuan</th>
                                             <th>Harga Total</th>
+                                            <th>Option</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         $ambilsemuadatastock = mysqli_query($conn, "select * from pemesanan p, stock s where s.idbarang = p.idbarang");
                                         while ($data = mysqli_fetch_array($ambilsemuadatastock)) {
+                                            $idp = $data['idpemesanan'];
                                             $idb = $data['idbarang'];
                                             $tanggal = $data['tanggal'];
                                             $penerima = $data['pembeli'];
+                                            $alamat = $data['alamat'];
                                             $namabarang = $data['namabarang'];
                                             $qty = $data['qty'];
                                             $harga = $data['harga'];
@@ -116,10 +120,75 @@ require 'function.php';
                                                 <td><?= $namabarang; ?></td>
                                                 <td><?= $qty; ?></td>
                                                 <td><?= $penerima; ?></td>
+                                                <td><?= $alamat; ?></td>
                                                 <td><?= $harga; ?></td>
                                                 <td><?= $harga * $qty; ?></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $idp; ?>">
+                                                        Edit
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $idp; ?>">
+                                                        Delete
+                                                    </button>
+                                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#<?= $idp; ?>">
+                                                        CheckOut
+                                                    </button>
+                                                </td>
 
                                             </tr>
+
+                                            <!-- Edit Modal -->
+                                            <div class="modal fade" id="edit<?= $idp; ?>">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Edit Data Barang</h4>
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+
+                                                        <!-- Modal body -->
+                                                        <form method="post">
+                                                            <div class="modal-body">
+                                                                <h6 class="modal-title">Quantity</h6>
+                                                                <input type="number" name="qty" value="<?= $qty; ?>" class="form-control" required>
+                                                                <br>
+                                                                <h6 class="modal-title">Alamat</h6>
+                                                                <input type="text" name="alamat-new" value="<?= $alamat; ?>" class="form-control" required>
+                                                                <br>
+                                                                <input type="hidden" name="idp" value="<?= $idp; ?>">
+                                                                <button type="submit" class="btn btn-primary" name="edit-pemesanan-user">Submit</button>
+                                                            </div>
+                                                        </form>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Delete Modal -->
+                                            <div class="modal fade" id="delete<?= $idp; ?>">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Hapus Barang?</h4>
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+
+                                                        <!-- Modal body -->
+                                                        <form method="post">
+                                                            <div class="modal-body">
+                                                                Apakah anda yakin ingin menghapus <b><?= $namabarang; ?></b>?
+                                                                <input type="hidden" name="idp" value="<?= $idp; ?>">
+                                                                <br>
+                                                                <br>
+                                                                <button type="submit" class="btn btn-danger" name="hapus-pemesanan-user">Submit</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                         <?php
                                         };
@@ -144,5 +213,35 @@ require 'function.php';
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/datatables-demo.js"></script>
 </body>
+
+<!-- mengubah data akun user -->
+
+<div class="modal fade" id="ubah-akun">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Ubah Data Akunmu</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <form method="post">
+                <div class="modal-body">
+                    <input type="text" name="username" placeholder="Username Baru" class="form-control" required>
+                    <br>
+                    <input type="text" name="email" placeholder="Email Baru" class="form-control" required>
+                    <br>
+                    <input type="password" name="password" placeholder="Password Baru" class="form-control" required>
+                    <br>
+                    <input type="password" name="password-old" placeholder="Password Lama" class="form-control" required>
+                    <br>
+                    <button type="submit" class="btn btn-primary" name="ubah-akun-user">Submit</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
 
 </html>

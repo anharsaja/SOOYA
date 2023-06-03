@@ -68,7 +68,7 @@ require 'function.php';
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <div class="card-header">
                             <!-- Button to Open the Modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ubah-akun">
                                 Ubah Data Akun
                             </button>
                         </div>
@@ -111,7 +111,7 @@ require 'function.php';
                         </div>
 
                     </section>
-                    <h1 class="mt-4">Stock Gudang</h1>
+                    <h1 class="mt-4">PRODUK</h1>
                     <div class="card mb-4">
                         <div class="card-header">
                             <!-- Button to Open the Modal -->
@@ -206,6 +206,8 @@ require 'function.php';
                     <br>
                     <input type="number" name="stock" placeholder="Quantity" class="form-control" required>
                     <br>
+                    <input type="text" name="alamat" placeholder="Alamat Penerima" class="form-control" required>
+                    <br>
                     <button type="submit" class="btn btn-primary" name="tambahkeranjang">Submit</button>
                 </div>
             </form>
@@ -234,7 +236,7 @@ require 'function.php';
                     <br>
                     <input type="password" name="password" placeholder="Password Baru" class="form-control" required>
                     <br>
-                    <input type="hidden" name="iduser" value="<?= $iduser; ?>">
+                    <input type="password" name="password-old" placeholder="Password Lama" class="form-control" required>
                     <br>
                     <button type="submit" class="btn btn-primary" name="ubah-akun-user">Submit</button>
                 </div>
