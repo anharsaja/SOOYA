@@ -49,7 +49,7 @@ if (isset($_POST['tambahkeranjang'])) {
     if ($addtokeluar && $updatestockmasuk) {
         header('location:pemesanan-user.php');
     } else {
-        header('location:produk-user.php');
+        header('location:produk-user-premium.php');
     }
 }
 
@@ -196,3 +196,42 @@ if (isset($_POST['hapusbarang'])) {
         header('location:produk-admin.php');
     }
 };
+
+
+# Tambah bahan masuk
+//Menambah barang baru
+if (isset($_POST['tambah-bahan-masuk'])) {
+    $idbarang = $_POST['idbarang'];
+    $namabarang = $_POST['namabarang'];
+    $stock = $_POST['stock'];
+
+    $addtotable = mysqli_query($conn, "insert into masuk (idbarang, namabarang, qty) values('$idbarang','$namabarang','$stock')");
+    if ($addtotable) {
+        echo "sukses";
+        header('location:barang-masuk.php');
+    } else {
+        echo 'Gagal';
+        header('location:barang-masuk.php');
+    }
+};
+
+
+# menambah barang keluar
+if (isset($_POST['keluarkan'])) {
+    $barangnya = $_POST['barangnya'];
+    $qty = $_POST['stock'];
+
+    $cekstocksekarang = mysqli_query($conn, "select * from masuk where idbarang='$barangnya'");
+    $ambildatanya = mysqli_fetch_array($cekstocksekarang);
+
+    $stocksekarang = $ambildatanya['qty'];
+    $tambahkanstocksekarangdenganquantity = $stocksekarang - $qty;
+
+    $addtokeluar = mysqli_query($conn, "insert into keluar (idbarang, qty) values ('$barangnya','$qty')");
+    $updatestockmasuk = mysqli_query($conn, "update masuk set qty='$tambahkanstocksekarangdenganquantity' where idbarang='$barangnya'");
+    if ($addtokeluar && $updatestockmasuk) {
+        header('location:barang-keluar.php');
+    } else {
+        header('location:barang-keluar.php');
+    }
+}
