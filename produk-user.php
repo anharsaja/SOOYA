@@ -35,7 +35,7 @@ require 'function.php';
 
 
                         <div class="sb-sidenav-menu-heading">
-                            <h5>JUAL BELI</h5>
+                            <h5>PRODUCT</h5>
                         </div>
 
                         <a class="nav-link" href="produk-user.php">
@@ -43,28 +43,19 @@ require 'function.php';
                             Daftar Produk
                         </a>
 
-                        <a class="nav-link" href="pemesanan-user.php">
-                            <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
-                            Daftar Pemesanan
-                        </a>
-
-                        <a class="nav-link" href="riwayat-user.php">
-                            <div class="sb-nav-link-icon"></div>
-                            Riwayat Penjualan
-                        </a>
 
                     </div>
                     <div class="nav">
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                        <div class="card-header">
-                            <!-- Button to Open the Modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ubah-akun">
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        <!-- <div class="card-header"> -->
+                        <!-- Button to Open the Modal -->
+                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ubah-akun">
                                 Ubah Data Akun
-                            </button>
-                        </div>
-                        <a class="nav-link" href="logout.php">
+                            </button> -->
+                        <!-- </div> -->
+                        <a class="nav-link" href="index.php">
                             <div class="sb-nav-link-icon"></i></div>
-                            Logout
+                            Sig in
                         </a>
 
                     </div>
@@ -72,18 +63,16 @@ require 'function.php';
 
             </nav>
         </div>
+
+
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
+                    <div class="gambar">
+                        <img src="assets/img/susu2.webp" alt="">
+                    </div>
                     <h1 class="mt-4">Stock Gudang</h1>
                     <div class="card mb-4">
-                        <div class="card-header">
-                            <!-- Button to Open the Modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                Masukkan Keranjang
-                            </button>
-
-                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -137,75 +126,5 @@ require 'function.php';
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/datatables-demo.js"></script>
 </body>
-<!-- The Modal -->
-<div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Tambah Data Keranjang</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-            <!-- Modal body -->
-            <form method="post">
-                <div class="modal-body">
-                    <select name="barangnya" class="form-control">
-                        <?php
-                        $ambilsemuadatanya = mysqli_query($conn, "select * from stock");
-                        while ($fetcharray = mysqli_fetch_array($ambilsemuadatanya)) {
-                            $idbarangnya = $fetcharray['idbarang'];
-
-                        ?>
-
-                            <option value="<?= $idbarangnya; ?>"><?= $idbarangnya; ?></option>
-
-                        <?php
-                        }
-                        ?>
-                    </select>
-                    <br>
-
-                    <input type="text" name="pembeli" placeholder="Penerima (Plat Nomor)" class="form-control" required>
-                    <br>
-                    <input type="number" name="stock" placeholder="Quantity" class="form-control" required>
-                    <br>
-                    <button type="submit" class="btn btn-primary" name="tambahkeranjang">Submit</button>
-                </div>
-            </form>
-
-        </div>
-    </div>
-</div>
-
-<!-- mengubah data akun user -->
-
-<div class="modal fade" id="ubah-akun">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Ubah Data Akunmu</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-            <!-- Modal body -->
-            <form method="post">
-                <div class="modal-body">
-                    <input type="text" name="username" placeholder="Username Baru" class="form-control" required>
-                    <br>
-                    <input type="text" name="email" placeholder="Email Baru" class="form-control" required>
-                    <br>
-                    <input type="password" name="password" placeholder="Password Baru" class="form-control" required>
-                    <br>
-                    <input  type="hidden" name="iduser" value="<?= $iduser; ?>">
-                    <br>
-                    <button type="submit" class="btn btn-primary" name="ubah-akun-user">Submit</button>
-                </div>
-            </form>
-
-        </div>
-    </div>
-</div>
 
 </html>
