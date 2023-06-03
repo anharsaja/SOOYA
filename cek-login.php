@@ -35,7 +35,7 @@ if ($cek > 0) {
         $_SESSION['username'] = $username;
         $_SESSION['level'] = "user";
         // alihkan ke halaman dashboard pegawai
-        header("location:produk-user.php");
+        header("location:produk-user-premium.php");
     } else {
 
         // alihkan ke halaman login kembali

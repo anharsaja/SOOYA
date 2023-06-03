@@ -27,7 +27,7 @@ require 'function.php';
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
 
@@ -91,6 +91,7 @@ require 'function.php';
 
                     </div>
                 </div>
+
             </nav>
         </div>
 
@@ -114,7 +115,7 @@ require 'function.php';
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $ambilsemuadatastock = mysqli_query($conn, "select * from pemesanan p, stock s where s.idbarang = p.idbarang");
+                                        $ambilsemuadatastock = mysqli_query($conn, "select * from penjualan p, stock s where s.idbarang = p.idbarang");
                                         while ($data = mysqli_fetch_array($ambilsemuadatastock)) {
                                             $idb = $data['idbarang'];
                                             $tanggal = $data['tanggal'];

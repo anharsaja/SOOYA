@@ -27,16 +27,16 @@ require 'function.php';
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
 
 
                         <div class="sb-sidenav-menu-heading">
-                            <h5>JUAL BELI</h5>
+                            <h5>PRODUCT</h5>
                         </div>
 
-                        <a class="nav-link" href="produk-user.php">
+                        <a class="nav-link" href="produk-user-premium.php">
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
                             Daftar Produk
                         </a>
@@ -51,9 +51,24 @@ require 'function.php';
                             Riwayat Penjualan
                         </a>
 
+                        <div class="sb-sidenav-menu-heading">
+                            <h5>BAHAN BAKU</h5>
+                        </div>
+
+                        <a class="nav-link" href="barang-masuk-user.php">
+                            <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
+                            Bahan Masuk
+                        </a>
+
+                        <a class="nav-link" href="barang-keluar-user.php">
+                            <div class="sb-nav-link-icon"></div>
+                            Bahan Keluar
+                        </a>
+
+
                     </div>
                     <div class="nav">
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <div class="card-header">
                             <!-- Button to Open the Modal -->
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
@@ -67,6 +82,7 @@ require 'function.php';
 
                     </div>
                 </div>
+
             </nav>
         </div>
 

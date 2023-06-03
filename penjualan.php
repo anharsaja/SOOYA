@@ -60,7 +60,7 @@ require 'function.php';
                             Daftar Pemesanan
                         </a>
 
-                        <a class="nav-link" href="riwayat-admin.php">
+                        <a class="nav-link" href="penjualan.php">
                             <div class="sb-nav-link-icon"></div>
                             Riwayat Penjualan
                         </a>
@@ -114,7 +114,7 @@ require 'function.php';
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $ambilsemuadatastock = mysqli_query($conn, "select * from pemesanan p, stock s where s.idbarang = p.idbarang");
+                                        $ambilsemuadatastock = mysqli_query($conn, "select * from penjualan p, stock s where s.idbarang = p.idbarang");
                                         while ($data = mysqli_fetch_array($ambilsemuadatastock)) {
                                             $idb = $data['idbarang'];
                                             $tanggal = $data['tanggal'];

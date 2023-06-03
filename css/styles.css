@@ -11243,3 +11243,14 @@ body {
 .login-card-logo img {
   width: 50px;
 }
+
+
+.gambar img {
+  height: 50px;
+  width: 200px;
+}
+
+.gambar {
+  border-radius: 15px;
+}
+
