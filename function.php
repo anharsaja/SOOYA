@@ -11,19 +11,17 @@ $conn = mysqli_connect("localhost", "root", "", "stockbarang");
 
 
 # Ubah data akun user
-
-
-if (isset($_POST['hapus-akun-user'])) {
-    $oldUsernmae = $_POST['username-lama'];
+if (isset($_POST['ubah-akun-user'])) {
+    $oldPassword = $_POST['password-old'];
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $update = mysqli_query($conn, "update login set (username, email, password) vallues ('$username','$email','$password') where username='$oldUsername'");
+    $update = mysqli_query($conn, "update login set username='$username', email='$email', password='$password' where password='$oldPassword'");
     if ($hapus) {
-        header('location:akun-admin.php');
+        header('location:produk-user-premium.php');
     } else {
         echo 'Gagal';
-        header('location:akun-admin.php');
+        header('location:produk-user-premium.php');
     }
 }
 
@@ -36,6 +34,7 @@ if (isset($_POST['hapus-akun-user'])) {
 if (isset($_POST['tambahkeranjang'])) {
     $barangnya = $_POST['barangnya'];
     $penerima = $_POST['pembeli'];
+    $alamat = $_POST['alamat'];
     $qty = $_POST['stock'];
 
     $cekstocksekarang = mysqli_query($conn, "select * from stock where idbarang='$barangnya'");
@@ -44,7 +43,7 @@ if (isset($_POST['tambahkeranjang'])) {
     $stocksekarang = $ambildatanya['stock'];
     $tambahkanstocksekarangdenganquantity = $stocksekarang - $qty;
 
-    $addtokeluar = mysqli_query($conn, "insert into pemesanan (idbarang, qty, pembeli) values ('$barangnya','$qty','$penerima')");
+    $addtokeluar = mysqli_query($conn, "insert into pemesanan (idbarang, qty, pembeli, alamat) values ('$barangnya','$qty','$penerima', '$alamat')");
     $updatestockmasuk = mysqli_query($conn, "update stock set stock='$tambahkanstocksekarangdenganquantity' where idbarang='$barangnya'");
     if ($addtokeluar && $updatestockmasuk) {
         header('location:pemesanan-user.php');
@@ -52,6 +51,36 @@ if (isset($_POST['tambahkeranjang'])) {
         header('location:produk-user-premium.php');
     }
 }
+
+
+/* ------------ ubah pesanan user */
+if (isset($_POST['edit-pemesanan-user'])) {
+    $idp = $_POST['idp'];
+    $idb = $_POST['idb'];
+    $qty = $_POST['qty'];
+    $alamat = $_POST['alamat-new'];
+
+    $update = mysqli_query($conn, "update pemesanan set qty='$qty', alamat='$alamat' where idpemesanan='$idp'");
+    if ($update) {
+        header('location:pemesanan-user.php');
+    } else {
+        echo 'Gagal';
+        header('location:pemesanan-user.php');
+    }
+};
+
+/* menghapus pemesanan */
+if (isset($_POST['hapus-pemesanan-user'])) {
+    $idp = $_POST['idp'];
+    $hapus = mysqli_query($conn, "delete from pemesanan where idpemesanan='$idp'");
+    if ($hapus) {
+        header('location:pemesanan-user.php');
+    } else {
+        echo 'Gagal';
+        header('location:pemesanan-user.php');
+    }
+};
+
 
 # ===========================================================================================
 
