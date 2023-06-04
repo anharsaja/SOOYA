@@ -155,7 +155,6 @@ require 'function.php';
                                                         <!-- Modal body -->
                                                         <form method="post">
                                                             <div class="modal-body">
-                                                                <br>
 
                                                                 <h6 class="modal-title">Quantity</h6>
                                                                 <input type="number" name="qty" value="<?= $qty; ?>" class="form-control" required>
@@ -230,7 +229,6 @@ require 'function.php';
                                                         <!-- Modal body -->
                                                         <form method="post">
                                                             <div class="modal-body">
-                                                                <br>
 
                                                                 <h6 class="modal-title">Quantity</h6>
                                                                 <input type="number" name="qty" value="<?= $qty; ?>" class="form-control" required>

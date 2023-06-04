@@ -66,11 +66,12 @@ require 'function.php';
 
 
         <div id="layoutSidenav_content">
+        <div class="oi text-center mt-3">
+                <img height="500px" width="800px" src="assets/img/susu2.webp" alt="">
+            </div>
             <main>
                 <div class="container-fluid">
-                    <div class="gambar">
-                        <img src="assets/img/susu2.webp" alt="">
-                    </div>
+                    
                     <h1 class="mt-4">Stock Gudang</h1>
                     <div class="card mb-4">
                         <div class="card-body">
