@@ -22,7 +22,7 @@ require 'function.php';
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="produk-admin.php">
+        <a class="navbar-brand" href="guest.php">
             " S O O Y A "
         </a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
@@ -38,7 +38,7 @@ require 'function.php';
                             <h5>PRODUCT</h5>
                         </div>
 
-                        <a class="nav-link" href="produk-user.php">
+                        <a class="nav-link" href="guest.php">
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
                             Daftar Produk
                         </a>
