@@ -55,12 +55,13 @@ if (isset($_POST['tambahkeranjang'])) {
 
 /* ------------ ubah pesanan user */
 if (isset($_POST['edit-pemesanan-user'])) {
+    $pembeli = $_POST['pembeli-new'];
     $idp = $_POST['idp'];
     $idb = $_POST['idb'];
     $qty = $_POST['qty'];
     $alamat = $_POST['alamat-new'];
 
-    $update = mysqli_query($conn, "update pemesanan set qty='$qty', alamat='$alamat' where idpemesanan='$idp'");
+    $update = mysqli_query($conn, "update pemesanan set qty='$qty', alamat='$alamat', pembeli='$pembeli' where idpemesanan='$idp'");
     if ($update) {
         header('location:pemesanan-user.php');
     } else {
@@ -227,7 +228,7 @@ if (isset($_POST['hapusbarang'])) {
 };
 
 
-# Tambah bahan masuk
+//========== Tambah bahan masuk =================== //
 //Menambah barang baru
 if (isset($_POST['tambah-bahan-masuk'])) {
     $idbarang = $_POST['idbarang'];
@@ -264,3 +265,21 @@ if (isset($_POST['keluarkan'])) {
         header('location:barang-keluar.php');
     }
 }
+
+
+
+// ======================================================================================================================
+/* CHECKOUT PEMESANAN */
+
+if (isset($_POST['checkout-pesanan'])) {
+    $idp = $_POST['idp'];
+    $metode = $_POST['metodenya'];
+    $pindah = mysqli_query($conn, "insert into penjualan (idpemesanan, pembayaran) values ('$idp','$metode')");
+    $hapus = mysqli_query($conn, "delete from pemesanan where idpemesanan='$idp'");
+    if ($hapus && $pindah) {
+        header('location:pemesanan-user.php');
+    } else {
+        echo 'Gagal';
+        header('location:pemesanan-user.php');
+    }
+};
