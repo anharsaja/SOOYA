@@ -228,8 +228,8 @@ if (isset($_POST['hapusbarang'])) {
 };
 
 
-//========== Tambah bahan masuk =================== //
-//Menambah barang baru
+//========== Tambah bahan masuk ==================================================================================================
+//Menambah barang masuk
 if (isset($_POST['tambah-bahan-masuk'])) {
     $idbarang = $_POST['idbarang'];
     $namabarang = $_POST['namabarang'];
@@ -245,6 +245,36 @@ if (isset($_POST['tambah-bahan-masuk'])) {
     }
 };
 
+//update Nahan Masuk
+if (isset($_POST['update-masuk'])) {
+    $idb = $_POST['idb'];
+    $namabarang = $_POST['namabarang'];
+    $qty = $_POST['qty'];
+
+    $update = mysqli_query($conn, "update masuk set namabarang='$namabarang', qty='$qty' where idbarang='$idb'");
+    if ($update) {
+        header('location:barang-masuk.php');
+    } else {
+        echo 'Gagal';
+        header('location:barang-masuk.php');
+    }
+};
+
+
+//menghapus barang dari masuk
+if (isset($_POST['hapus-masuk'])) {
+    $idb = $_POST['idb'];
+    $hapus = mysqli_query($conn, "delete from masuk where idbarang='$idb'");
+    if ($hapus) {
+        header('location:barang-masuk.php');
+    } else {
+        echo 'Gagal';
+        header('location:barang-masuk.php');
+    }
+};
+
+
+// Tambah Bahan keluar =============================================================================================================
 
 # menambah barang keluar
 if (isset($_POST['keluarkan'])) {
@@ -324,10 +354,10 @@ if (isset($_POST['terima-barang'])) {
 
     $update = mysqli_query($conn, "update penjualan set status='diterima' where idpenjualan='$idp'");
     if ($update) {
-        header('location:riwayat-pembelian.php');
+        header('location:pemesanan.php');
     } else {
         echo 'Gagal';
-        header('location:riwayat-pembelian.php');
+        header('location:pemesanan.php');
     }
 };
 // ================================================================================================================================

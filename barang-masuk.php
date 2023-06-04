@@ -126,48 +126,46 @@ require 'function.php';
                                         <?php
                                         $ambilsemuadatastock = mysqli_query($conn, "select * from masuk");
                                         while ($data = mysqli_fetch_array($ambilsemuadatastock)) {
-                                            $kodebarang = $data['idbarang'];
+                                            $idb = $data['idbarang'];
                                             $namabarang = $data['namabarang'];
                                             $qty = $data['qty'];
                                             $tanggal = $data['tanggal'];
                                         ?>
 
                                             <tr>
-                                                <td><?= $kodebarang; ?></td>
+                                                <td><?= $idb; ?></td>
                                                 <td><?= $namabarang; ?></td>
                                                 <td><?= $qty; ?></td>
                                                 <td><?= $tanggal; ?></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $iduser; ?>">
+                                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $idb; ?>">
                                                         Edit
                                                     </button>
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $iduser; ?>">
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $idb; ?>">
                                                         Delete
                                                     </button>
                                                 </td>
                                             </tr>
 
                                             <!-- Edit Modal -->
-                                            <div class="modal fade" id="edit<?= $iduser; ?>">
+                                            <div class="modal fade" id="edit<?= $idb; ?>">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <!-- Modal Header -->
                                                         <div class="modal-header">
-                                                            <h4 class="modal-title">Edit Data Akun</h4>
+                                                            <h4 class="modal-title">Edit Data Barang</h4>
                                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                         </div>
 
                                                         <!-- Modal body -->
                                                         <form method="post">
                                                             <div class="modal-body">
-                                                                <input type="text" name="username" value="<?= $username; ?>" class="form-control" required>
+                                                                <input type="text" name="namabarang" value="<?= $namabarang; ?>" class="form-control" required>
                                                                 <br>
-                                                                <input type="text" name="email" value="<?= $email; ?>" class="form-control" required>
+                                                                <input type="text" name="qty" value="<?= $qty; ?>" class="form-control" required>
                                                                 <br>
-                                                                <input type="text" name="password" value="<?= $password; ?>" class="form-control" required>
-                                                                <br>
-                                                                <input type="hidden" name="iduser" value="<?= $iduser; ?>">
-                                                                <button type="submit" class="btn btn-primary" name="update-akun-customer">Submit</button>
+                                                                <input type="hidden" name="idb" value="<?= $idb; ?>">
+                                                                <button type="submit" class="btn btn-primary" name="update-masuk">Submit</button>
                                                             </div>
                                                         </form>
 
@@ -176,29 +174,30 @@ require 'function.php';
                                             </div>
 
                                             <!-- Delete Modal -->
-                                            <div class="modal fade" id="delete<?= $iduser; ?>">
+                                            <div class="modal fade" id="delete<?= $idb; ?>">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
 
                                                         <!-- Modal Header -->
                                                         <div class="modal-header">
-                                                            <h4 class="modal-title">Hapus Barang?</h4>
+                                                            <h4 class="modal-title">Hapus Bahan?</h4>
                                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                         </div>
 
                                                         <!-- Modal body -->
                                                         <form method="post">
                                                             <div class="modal-body">
-                                                                Apakah anda yakin ingin menghapus <b><?= $username; ?></b>?
-                                                                <input type="hidden" name="iduser" value="<?= $iduser; ?>">
+                                                                Apakah anda yakin ingin menghapus <b><?= $namabarang; ?></b>?
+                                                                <input type="hidden" name="idb" value="<?= $idb; ?>">
                                                                 <br>
                                                                 <br>
-                                                                <button type="submit" class="btn btn-danger" name="hapus-akun-customer">Submit</button>
+                                                                <button type="submit" class="btn btn-danger" name="hapus-masuk">Submit</button>
                                                             </div>
                                                         </form>
                                                     </div>
                                                 </div>
                                             </div>
+
                                         <?php
                                         };
                                         ?>
