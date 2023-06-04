@@ -22,12 +22,12 @@ require 'function.php';
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="keluar.php">G U D A N G</a>
+        <a class="navbar-brand" href="keluar.php">" S O O Y A "</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
 
@@ -44,6 +44,11 @@ require 'function.php';
                         <a class="nav-link" href="pemesanan-user.php">
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
                             Daftar Pemesanan
+                        </a>
+
+                        <a class="nav-link" href="riwayat-pembelian.php">
+                            <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
+                            Riwayat Pembelian
                         </a>
 
                         <div class="sb-sidenav-menu-heading">
@@ -63,7 +68,7 @@ require 'function.php';
 
                     </div>
                     <div class="nav">
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>    
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <div class="card-header">
                             <!-- Button to Open the Modal -->
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ubah-akun">
@@ -117,7 +122,7 @@ require 'function.php';
                                                 <td><?= $qty; ?></td>
                                             </tr>
 
-                                            
+
 
                                         <?php
                                         };
