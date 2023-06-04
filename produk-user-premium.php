@@ -47,7 +47,7 @@ require 'function.php';
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
                             Daftar Pemesanan
                         </a>
-                        
+
                         <a class="nav-link" href="riwayat-pembelian.php">
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
                             Riwayat Pembelian
@@ -88,18 +88,12 @@ require 'function.php';
             </nav>
         </div>
         <div id="layoutSidenav_content">
+            <div class="oi text-center mt-3">
+                <img height="500px" width="800px" src="assets/img/susu2.webp" alt="">
+            </div>
             <main>
                 <div class="container-fluid">
                     <section class="gambar mt-4">
-                        <div class="row mt-4">
-                            <div class="col">
-                                <div class="card shadow">
-                                    <div class="card-body text-center">
-                                        <img src="assets/img/susu2.webp" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="row mt-2">
                             <div class="col-md-12">
                                 <h4><strong>Description</strong></h4>

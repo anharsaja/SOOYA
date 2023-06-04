@@ -97,30 +97,25 @@ require 'function.php';
             </nav>
         </div>
         <div id="layoutSidenav_content">
+            <div class="oi text-center mt-3">
+                <img height="500px" width="800px" src="assets/img/susu2.webp" alt="">
+            </div>
             <main>
                 <div class="container-fluid">
-                    <!-- <h1 class="mt-4">Stock Gudang</h1> -->
-                    <section class="gambar mt-4">
-                        <div class="card shadow">
-                            <div class="card-body text-center">
-                                <img src="assets/img/susu2.webp" alt="">
-                            </div>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-md-12">
-                                <h4><strong>Description</strong></h4>
-                                <h6>Sebuah penelitian menunjukkan bahwa wanita yang meminum susu kedelai setiap hari memiliki risiko osteoporosis 56% lebih rendah dibandingkan dengan wanita yang tidak meminumnya. Selain itu, susu kedelai dapat meringankan gejala menopause, seperti sensasi rasa panas (hot flashes) dan berkeringat di malam hari. Kedelai juga diduga dapat membantu fungsi kognitif wanita yang berusia di bawah 65 tahun. Sedangkan anggapan bahwa susu kedelai berguna bagi kesehatan jantung masih diteliti. Manfaat susu kedelai lainnya tidak terlepas dari kandungan yang ada dalam kedelai. Berikut beberapa kandungan susu kedelai yang baik bagi tubuh:</h6><br>
-                                <p>1. Susu kedelai mengandung protein yang hampir sama banyaknya dengan susu sapi, tapi dengan kalori yang lebih rendah.</p>
-                                <p>2. Vitamin D penting untuk kesehatan tulang. Banyak susu kedelai yang dijual telah ditambahkan dengan vitamin D.</p>
-                                <p>3. Vitamin B12 membantu memproduksi sel darah merah sehingga mencegah anemia. Sumber vitamin B12 antara lain adalah telur dan produk susu.</p>
-                                <p>4. Susu kedelai juga mengandung seng (zinc) yang penting untuk sistem kekebalan tubuh.</p>
-                                <p>5. Kedelai tinggi akan kandungan asam lemak, seperti omega-3, yang dapat membantu mengurangi kadar lemak darah (kolesterol total dan trigliserida), sehingga mengurangi risiko penyakit jantung koroner dan serangan jantung.</p>
-                                <p>6. Berkat kandungan nutrisinya yang beragam, susu kedelai juga baik dikonsumsi oleh ibu hamil, asalkan jumlahnya tidak berlebihan.</p>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <h4><strong>Description</strong></h4>
+                            <h6>Sebuah penelitian menunjukkan bahwa wanita yang meminum susu kedelai setiap hari memiliki risiko osteoporosis 56% lebih rendah dibandingkan dengan wanita yang tidak meminumnya. Selain itu, susu kedelai dapat meringankan gejala menopause, seperti sensasi rasa panas (hot flashes) dan berkeringat di malam hari. Kedelai juga diduga dapat membantu fungsi kognitif wanita yang berusia di bawah 65 tahun. Sedangkan anggapan bahwa susu kedelai berguna bagi kesehatan jantung masih diteliti. Manfaat susu kedelai lainnya tidak terlepas dari kandungan yang ada dalam kedelai. Berikut beberapa kandungan susu kedelai yang baik bagi tubuh:</h6><br>
+                            <p>1. Susu kedelai mengandung protein yang hampir sama banyaknya dengan susu sapi, tapi dengan kalori yang lebih rendah.</p>
+                            <p>2. Vitamin D penting untuk kesehatan tulang. Banyak susu kedelai yang dijual telah ditambahkan dengan vitamin D.</p>
+                            <p>3. Vitamin B12 membantu memproduksi sel darah merah sehingga mencegah anemia. Sumber vitamin B12 antara lain adalah telur dan produk susu.</p>
+                            <p>4. Susu kedelai juga mengandung seng (zinc) yang penting untuk sistem kekebalan tubuh.</p>
+                            <p>5. Kedelai tinggi akan kandungan asam lemak, seperti omega-3, yang dapat membantu mengurangi kadar lemak darah (kolesterol total dan trigliserida), sehingga mengurangi risiko penyakit jantung koroner dan serangan jantung.</p>
+                            <p>6. Berkat kandungan nutrisinya yang beragam, susu kedelai juga baik dikonsumsi oleh ibu hamil, asalkan jumlahnya tidak berlebihan.</p>
 
 
-                            </div>
                         </div>
-                    </section>
+                    </div>
 
                     <div class="card mb-4">
                         <div class="card-header">
