@@ -27,7 +27,7 @@ require 'function.php';
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
 
@@ -102,6 +102,7 @@ require 'function.php';
                                             <th>Harga Total</th>
                                             <th>Metode</th>
                                             <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -126,8 +127,38 @@ require 'function.php';
                                                 <td><?= $totalharga; ?></td>
                                                 <td><?= $metode; ?></td>
                                                 <td><?= $status; ?></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#diterima<?= $idp; ?>">
+                                                        Diterima
+                                                    </button>
+                                                </td>
 
                                             </tr>
+
+                                            <!-- diterima Modal -->
+                                            <div class="modal fade" id="diterima<?= $idp; ?>">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Konfirmasi?</h4>
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+
+                                                        <!-- Modal body -->
+                                                        <form method="post">
+                                                            <div class="modal-body">
+                                                                Apakah anda sudah menerima barang <b><?= $namabarang; ?></b>?
+                                                                <input type="hidden" name="idp" value="<?= $idp; ?>">
+                                                                <br>
+                                                                <br>
+                                                                <button type="submit" class="btn btn-success" name="terima-barang">Terima Barang</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                         <?php
                                         };

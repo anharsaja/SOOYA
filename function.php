@@ -318,4 +318,16 @@ if (isset($_POST['batal-kirim'])) {
     }
 };
 
+// Terima barang dari user
+if (isset($_POST['terima-barang'])) {
+    $idp = $_POST['idp'];
+
+    $update = mysqli_query($conn, "update penjualan set status='diterima' where idpenjualan='$idp'");
+    if ($update) {
+        header('location:riwayat-pembelian.php');
+    } else {
+        echo 'Gagal';
+        header('location:riwayat-pembelian.php');
+    }
+};
 // ================================================================================================================================
