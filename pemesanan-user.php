@@ -130,7 +130,7 @@ require 'function.php';
                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $idp; ?>">
                                                         Delete
                                                     </button>
-                                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#<?= $idp; ?>">
+                                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#checkout<?= $idp; ?>">
                                                         CheckOut
                                                     </button>
                                                 </td>
@@ -150,17 +150,39 @@ require 'function.php';
                                                         <!-- Modal body -->
                                                         <form method="post">
                                                             <div class="modal-body">
+                                                                <br>
+
                                                                 <h6 class="modal-title">Quantity</h6>
                                                                 <input type="number" name="qty" value="<?= $qty; ?>" class="form-control" required>
                                                                 <br>
                                                                 <h6 class="modal-title">Alamat</h6>
                                                                 <input type="text" name="alamat-new" value="<?= $alamat; ?>" class="form-control" required>
                                                                 <br>
+                                                                <h6 class="modal-title">Atas Nama</h6>
+                                                                <input type="text" name="pembeli-new" value="<?= $penerima; ?>" class="form-control" required>
+                                                                <br>
+                                                                <h6 class="modal-title">Metode Pembayaran</h6>
+
+                                                                <select name="barangnya" class="form-control">
+                                                                    <?php
+                                                                    $ambilsemuadatanya = mysqli_query($conn, "select * from pembayaran");
+                                                                    while ($fetcharray = mysqli_fetch_array($ambilsemuadatanya)) {
+                                                                        $idbarangnya = $fetcharray['idbarang'];
+                                                                        $metode = $fetcharray['metode_pembayaran'];
+
+                                                                    ?>
+
+                                                                        <option value="<?= $metode; ?>"><?= $metode; ?></option>
+
+                                                                    <?php
+                                                                    }
+                                                                    ?>
+                                                                </select>
+                                                                <br>
                                                                 <input type="hidden" name="idp" value="<?= $idp; ?>">
-                                                                <button type="submit" class="btn btn-primary" name="edit-pemesanan-user">Submit</button>
+                                                                <button type="submit" class="btn btn-primary" name="edit-pemesanan-user">Simpan</button>
                                                             </div>
                                                         </form>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -184,6 +206,57 @@ require 'function.php';
                                                                 <br>
                                                                 <br>
                                                                 <button type="submit" class="btn btn-danger" name="hapus-pemesanan-user">Submit</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Checkout Modal -->
+                                            <div class="modal fade" id="checkout<?= $idp; ?>">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Edit Data Barang</h4>
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+
+                                                        <!-- Modal body -->
+                                                        <form method="post">
+                                                            <div class="modal-body">
+                                                                <br>
+
+                                                                <h6 class="modal-title">Quantity</h6>
+                                                                <input type="number" name="qty" value="<?= $qty; ?>" class="form-control" required>
+                                                                <br>
+                                                                <h6 class="modal-title">Alamat</h6>
+                                                                <input type="text" name="alamat-new" value="<?= $alamat; ?>" class="form-control" required>
+                                                                <br>
+                                                                <h6 class="modal-title">Atas Nama</h6>
+                                                                <input type="text" name="pembeli-new" value="<?= $penerima; ?>" class="form-control" required>
+                                                                <br>
+                                                                <h6 class="modal-title">Metode Pembayaran</h6>
+
+                                                                <select name="metodenya" class="form-control">
+                                                                    <?php
+                                                                    $ambilsemuadatanya = mysqli_query($conn, "select * from pembayaran");
+                                                                    while ($fetcharray = mysqli_fetch_array($ambilsemuadatanya)) {
+                                                                        $idbarangnya = $fetcharray['idbarang'];
+                                                                        $metode = $fetcharray['metode_pembayaran'];
+
+                                                                    ?>
+
+                                                                        <option value="<?= $metode; ?>"><?= $metode; ?></option>
+
+                                                                    <?php
+                                                                    }
+                                                                    ?>
+                                                                </select>
+                                                                <br>
+                                                                <input type="hidden" name="idp" value="<?= $idp; ?>">
+                                                                <button type="submit" class="btn btn-primary" name="edit-pemesanan-user">Simapn dan Keluar</button>
+                                                                <button type="submit" class="btn btn-success" name="checkout-pesanan">Checkout Now</button>
                                                             </div>
                                                         </form>
                                                     </div>
