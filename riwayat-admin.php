@@ -13,7 +13,7 @@ require 'function.php';
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Riwayat Penjualan</title>
+    <title>Tracking</title>
     <link rel="icon" type="png" href="assets/img/trade.png">
     <link href="css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
@@ -27,7 +27,7 @@ require 'function.php';
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
 
@@ -91,7 +91,6 @@ require 'function.php';
 
                     </div>
                 </div>
-
             </nav>
         </div>
 
@@ -108,32 +107,92 @@ require 'function.php';
                                             <th>Tanggal</th>
                                             <th>Nama Barang</th>
                                             <th>Jumlah</th>
-                                            <th>Pembeli</th>
-                                            <th>Harga Satuan</th>
                                             <th>Harga Total</th>
+                                            <th>Metode</th>
+                                            <th>Pembeli</th>
+                                            <th>Alamat</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $ambilsemuadatastock = mysqli_query($conn, "select * from penjualan p, stock s where s.idbarang = p.idbarang");
+                                        $ambilsemuadatastock = mysqli_query($conn, "select * from penjualan WHERE status='diterima'");
                                         while ($data = mysqli_fetch_array($ambilsemuadatastock)) {
-                                            $idb = $data['idbarang'];
+                                            $idp = $data['idpenjualan'];
                                             $tanggal = $data['tanggal'];
-                                            $penerima = $data['pembeli'];
                                             $namabarang = $data['namabarang'];
                                             $qty = $data['qty'];
-                                            $harga = $data['harga'];
+                                            $totalharga = $data['totalharga'];
+                                            $metode = $data['metode'];
+                                            $status = $data['status'];
+                                            $pembeli = $data['pembeli'];
+                                            $alamat = $data['alamat'];
+
+
                                         ?>
 
                                             <tr>
                                                 <td><?= $tanggal; ?></td>
                                                 <td><?= $namabarang; ?></td>
                                                 <td><?= $qty; ?></td>
-                                                <td><?= $penerima; ?></td>
-                                                <td><?= $harga; ?></td>
-                                                <td><?= $harga * $qty; ?></td>
+                                                <td><?= $totalharga; ?></td>
+                                                <td><?= $metode; ?></td>
+                                                <td><?= $pembeli; ?></td>
+                                                <td><?= $alamat; ?></td>
+                                                <td><?= $status; ?></td>
 
                                             </tr>
+
+                                            <!-- Kirim Modal -->
+                                            <div class="modal fade" id="kirim<?= $idp; ?>">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Kirimkan Barang?</h4>
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+
+                                                        <!-- Modal body -->
+                                                        <form method="post">
+                                                            <div class="modal-body">
+                                                                Apakah anda yakin ingin mgnirimkan produk <b><?= $namabarang; ?></b>?
+                                                                <input type="hidden" name="idp" value="<?= $idp; ?>">
+                                                                <br>
+                                                                <br>
+                                                                <button type="submit" class="btn btn-success" name="kirim-barang">Kirimkan Barang</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <!-- Batal Kirim -->
+                                            <div class="modal fade" id="batal<?= $idp; ?>">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Batalkan Pengiriman?</h4>
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+
+                                                        <!-- Modal body -->
+                                                        <form method="post">
+                                                            <div class="modal-body">
+                                                                Apakah anda yakin ingin membatalkan pengiriman <b><?= $namabarang; ?></b>?
+                                                                <input type="hidden" name="idp" value="<?= $idp; ?>">
+                                                                <br>
+                                                                <br>
+                                                                <button type="submit" class="btn btn-warning" name="batal-kirim">Batalkan Pengiriman</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                         <?php
                                         };

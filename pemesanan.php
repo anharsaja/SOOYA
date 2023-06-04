@@ -117,7 +117,7 @@ require 'function.php';
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $ambilsemuadatastock = mysqli_query($conn, "select * from penjualan");
+                                        $ambilsemuadatastock = mysqli_query($conn, "select * from penjualan WHERE status='sedang diproses' or status='dibatalkan'");
                                         while ($data = mysqli_fetch_array($ambilsemuadatastock)) {
                                             $idp = $data['idpenjualan'];
                                             $tanggal = $data['tanggal'];
