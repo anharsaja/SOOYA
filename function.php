@@ -274,7 +274,11 @@ if (isset($_POST['keluarkan'])) {
 if (isset($_POST['checkout-pesanan'])) {
     $idp = $_POST['idp'];
     $metode = $_POST['metodenya'];
-    $pindah = mysqli_query($conn, "insert into penjualan (idpemesanan, pembayaran) values ('$idp','$metode')");
+    $namabarang = $_POST['namabarang'];
+    $qty = $_POST['qty'];
+    $harga = $_POST['harga'];
+    $totalharga = $harga * $qty;
+    $pindah = mysqli_query($conn, "insert into penjualan (pembayaran, namabarang, qty, totalharga, metode) values ('$metode','$namabarang','$qty','$totalharga', '$metode')");
     $hapus = mysqli_query($conn, "delete from pemesanan where idpemesanan='$idp'");
     if ($hapus && $pindah) {
         header('location:pemesanan-user.php');

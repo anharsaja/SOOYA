@@ -46,6 +46,11 @@ require 'function.php';
                             Daftar Pemesanan
                         </a>
 
+                        <a class="nav-link" href="riwayat-pembelian.php">
+                            <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
+                            Riwayat Pembelian
+                        </a>
+
                         <div class="sb-sidenav-menu-heading">
                             <h5>BAHAN BAKU</h5>
                         </div>
@@ -63,7 +68,7 @@ require 'function.php';
 
                     </div>
                     <div class="nav">
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <div class="card-header">
                             <!-- Button to Open the Modal -->
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ubah-akun">
@@ -254,6 +259,8 @@ require 'function.php';
                                                                     ?>
                                                                 </select>
                                                                 <br>
+                                                                <input type="hidden" name="namabarang" value="<?= $namabarang; ?>">
+                                                                <input type="hidden" name="harga" value="<?= $harga; ?>">
                                                                 <input type="hidden" name="idp" value="<?= $idp; ?>">
                                                                 <button type="submit" class="btn btn-primary" name="edit-pemesanan-user">Simapn dan Keluar</button>
                                                                 <button type="submit" class="btn btn-success" name="checkout-pesanan">Checkout Now</button>

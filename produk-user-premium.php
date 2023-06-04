@@ -47,6 +47,11 @@ require 'function.php';
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
                             Daftar Pemesanan
                         </a>
+                        
+                        <a class="nav-link" href="riwayat-pembelian.php">
+                            <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-warehouse fa-bounce"></i></div>
+                            Riwayat Pembelian
+                        </a>
 
                         <div class="sb-sidenav-menu-heading">
                             <h5>BAHAN BAKU</h5>
@@ -65,7 +70,7 @@ require 'function.php';
 
                     </div>
                     <div class="nav">
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <div class="card-header">
                             <!-- Button to Open the Modal -->
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ubah-akun">
