@@ -13,7 +13,7 @@ require 'function.php';
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Barang Keluar</title>
+    <title>Riwayat Pembelian</title>
     <link rel="icon" type="png" href="assets/img/trade.png">
     <link href="css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
@@ -46,9 +46,9 @@ require 'function.php';
                             Daftar Pemesanan
                         </a>
 
-                        <a class="nav-link" href="riwayat-user.php">
+                        <a class="nav-link" href="riwayat-pembelian.php">
                             <div class="sb-nav-link-icon"></div>
-                            Riwayat Penjualan
+                            Riwayat Pembelian
                         </a>
 
                         <div class="sb-sidenav-menu-heading">
@@ -68,7 +68,7 @@ require 'function.php';
 
                     </div>
                     <div class="nav">
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <div class="card-header">
                             <!-- Button to Open the Modal -->
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
@@ -89,7 +89,7 @@ require 'function.php';
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Barang Keluar</h1>
+                    <h1 class="mt-4">RIWAYAT PEMBELIAN</h1>
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
@@ -99,30 +99,33 @@ require 'function.php';
                                             <th>Tanggal</th>
                                             <th>Nama Barang</th>
                                             <th>Jumlah</th>
-                                            <th>Pembeli</th>
-                                            <th>Harga Satuan</th>
                                             <th>Harga Total</th>
+                                            <th>Metode</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $ambilsemuadatastock = mysqli_query($conn, "select * from pemesanan p, stock s where s.idbarang = p.idbarang");
+                                        $ambilsemuadatastock = mysqli_query($conn, "select * from penjualan");
                                         while ($data = mysqli_fetch_array($ambilsemuadatastock)) {
-                                            $idb = $data['idbarang'];
+                                            $idp = $data['idpenjualan'];
                                             $tanggal = $data['tanggal'];
-                                            $penerima = $data['pembeli'];
                                             $namabarang = $data['namabarang'];
                                             $qty = $data['qty'];
-                                            $harga = $data['harga'];
+                                            $totalharga = $data['totalharga'];
+                                            $metode = $data['metode'];
+                                            $status = $data['status'];
+
+
                                         ?>
 
                                             <tr>
                                                 <td><?= $tanggal; ?></td>
                                                 <td><?= $namabarang; ?></td>
                                                 <td><?= $qty; ?></td>
-                                                <td><?= $penerima; ?></td>
-                                                <td><?= $harga; ?></td>
-                                                <td><?= $harga * $qty; ?></td>
+                                                <td><?= $totalharga; ?></td>
+                                                <td><?= $metode; ?></td>
+                                                <td><?= $status; ?></td>
 
                                             </tr>
 
