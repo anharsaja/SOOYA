@@ -289,3 +289,33 @@ if (isset($_POST['checkout-pesanan'])) {
         header('location:pemesanan-user.php');
     }
 };
+
+
+// Kirim barang dari admin
+if (isset($_POST['kirim-barang'])) {
+    $idp = $_POST['idp'];
+
+    $update = mysqli_query($conn, "update penjualan set status='dikirim' where idpenjualan='$idp'");
+    if ($update) {
+        header('location:pemesanan.php');
+    } else {
+        echo 'Gagal';
+        header('location:pemesanan.php');
+    }
+};
+
+
+// Batlkan pengiriman dari admin
+if (isset($_POST['batal-kirim'])) {
+    $idp = $_POST['idp'];
+
+    $update = mysqli_query($conn, "update penjualan set status='dibatalkan' where idpenjualan='$idp'");
+    if ($update) {
+        header('location:pemesanan.php');
+    } else {
+        echo 'Gagal';
+        header('location:pemesanan.php');
+    }
+};
+
+// ================================================================================================================================

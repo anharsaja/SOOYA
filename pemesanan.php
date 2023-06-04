@@ -107,32 +107,102 @@ require 'function.php';
                                             <th>Tanggal</th>
                                             <th>Nama Barang</th>
                                             <th>Jumlah</th>
-                                            <th>Pembeli</th>
-                                            <th>Harga Satuan</th>
                                             <th>Harga Total</th>
+                                            <th>Metode</th>
+                                            <th>Pembeli</th>
+                                            <th>Alamat</th>
+                                            <th>Status</th>
+                                            <th>Options</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $ambilsemuadatastock = mysqli_query($conn, "select * from pemesanan p, stock s where s.idbarang = p.idbarang");
+                                        $ambilsemuadatastock = mysqli_query($conn, "select * from penjualan");
                                         while ($data = mysqli_fetch_array($ambilsemuadatastock)) {
-                                            $idb = $data['idbarang'];
+                                            $idp = $data['idpenjualan'];
                                             $tanggal = $data['tanggal'];
-                                            $penerima = $data['pembeli'];
                                             $namabarang = $data['namabarang'];
                                             $qty = $data['qty'];
-                                            $harga = $data['harga'];
+                                            $totalharga = $data['totalharga'];
+                                            $metode = $data['metode'];
+                                            $status = $data['status'];
+                                            $pembeli = $data['pembeli'];
+                                            $alamat = $data['alamat'];
+
+
                                         ?>
 
                                             <tr>
                                                 <td><?= $tanggal; ?></td>
                                                 <td><?= $namabarang; ?></td>
                                                 <td><?= $qty; ?></td>
-                                                <td><?= $penerima; ?></td>
-                                                <td><?= $harga; ?></td>
-                                                <td><?= $harga * $qty; ?></td>
+                                                <td><?= $totalharga; ?></td>
+                                                <td><?= $metode; ?></td>
+                                                <td><?= $pembeli; ?></td>
+                                                <td><?= $alamat; ?></td>
+                                                <td><?= $status; ?></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#kirim<?= $idp; ?>">
+                                                        Kirim
+                                                    </button>
+                                                    
+                                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#batal<?= $idp; ?>">
+                                                        Batal Kirim
+                                                    </button>
+                                                </td>
 
                                             </tr>
+
+                                            <!-- Kirim Modal -->
+                                            <div class="modal fade" id="kirim<?= $idp; ?>">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Kirimkan Barang?</h4>
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+
+                                                        <!-- Modal body -->
+                                                        <form method="post">
+                                                            <div class="modal-body">
+                                                                Apakah anda yakin ingin mgnirimkan produk <b><?= $namabarang; ?></b>?
+                                                                <input type="hidden" name="idp" value="<?= $idp; ?>">
+                                                                <br>
+                                                                <br>
+                                                                <button type="submit" class="btn btn-success" name="kirim-barang">Kirimkan Barang</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <!-- Batal Kirim -->
+                                            <div class="modal fade" id="batal<?= $idp; ?>">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Batalkan Pengiriman?</h4>
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+
+                                                        <!-- Modal body -->
+                                                        <form method="post">
+                                                            <div class="modal-body">
+                                                                Apakah anda yakin ingin membatalkan pengiriman <b><?= $namabarang; ?></b>?
+                                                                <input type="hidden" name="idp" value="<?= $idp; ?>">
+                                                                <br>
+                                                                <br>
+                                                                <button type="submit" class="btn btn-warning" name="batal-kirim">Batalkan Pengiriman</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                         <?php
                                         };
