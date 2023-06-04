@@ -276,27 +276,79 @@ if (isset($_POST['hapus-masuk'])) {
 
 // Tambah Bahan keluar =============================================================================================================
 
-# menambah barang keluar
+# menambah bahan keluar
 if (isset($_POST['keluarkan'])) {
-    $barangnya = $_POST['barangnya'];
-    $qty = $_POST['stock'];
+    $idbarangnya = $_POST['barangnya'];
+    $qty = $_POST['qty'];
+    $namabarang = $_POST['namabarang'];
 
-    $cekstocksekarang = mysqli_query($conn, "select * from masuk where idbarang='$barangnya'");
+    $cekstocksekarang = mysqli_query($conn, "select * from masuk where idbarang='$idbarangnya'");
     $ambildatanya = mysqli_fetch_array($cekstocksekarang);
 
     $stocksekarang = $ambildatanya['qty'];
     $tambahkanstocksekarangdenganquantity = $stocksekarang - $qty;
 
-    $addtokeluar = mysqli_query($conn, "insert into keluar (idbarang, qty) values ('$barangnya','$qty')");
-    $updatestockmasuk = mysqli_query($conn, "update masuk set qty='$tambahkanstocksekarangdenganquantity' where idbarang='$barangnya'");
+    $addtokeluar = mysqli_query($conn, "insert into keluar (idbarang, namabarang, qty) values ('$idbarangnya','$namabarang','$qty')");
+    $updatestockmasuk = mysqli_query($conn, "update masuk set qty='$tambahkanstocksekarangdenganquantity' where idbarang='$idbarangnya'");
     if ($addtokeluar && $updatestockmasuk) {
         header('location:barang-keluar.php');
     } else {
-        header('location:barang-keluar.php');
+        header('location:barang-masuk.php');
     }
 }
 
+# edit bahan keluar
+if (isset($_POST['update-keluar'])) {
+    $idb = $_POST['idb'];
+    $qty = $_POST['qty'];
 
+    $cekMasuk = mysqli_query($conn, "select * from masuk where idbarang='$idb'");
+    $dataMasuk = mysqli_fetch_array($cekMasuk);
+    $qtyMasuk = $dataMasuk['qty'];
+
+
+    $cekKeluar = mysqli_query($conn, "select * from keluar where idbarang='$idb'");
+    $dataKeluar = mysqli_fetch_array($cekKeluar);
+    $qtyKeluar = $dataKeluar['qty'];
+
+
+    if ($qty > $qtyKeluar) {
+        $qtybaru = $qty - $qtyKeluar;
+        $qtybarumasuk = $qtyMasuk - $qtybaru;
+        $update = mysqli_query($conn, "update masuk set qty='$qtybarumasuk' where idbarang='$idb'");
+        $update = mysqli_query($conn, "update keluar set qty='$qty' where idbarang='$idb'");
+    } else if ($qtyKeluar > $qty) {
+        $qtybaru = $qtyKeluar - $qty;
+        $qtybarumasuk = $qtyMasuk + $qtybaru;
+        $update = mysqli_query($conn, "update masuk set qty='$qtybarumasuk' where idbarang='$idb'");
+        $update = mysqli_query($conn, "update keluar set qty='$qty' where idbarang='$idb'");
+    } else if ($qty <= 0) {
+        header('location:barang-keluar.php');
+    }
+    header('location:barang-keluar.php');
+};
+
+
+//menghapus barang dari keluar
+if (isset($_POST['delete-keluar'])) {
+    $idb = $_POST['idb'];
+    $qty = $_POST['qty'];
+    $hapus = mysqli_query($conn, "delete from keluar where idbarang='$idb'");
+
+    $cekMasuk = mysqli_query($conn, "select * from masuk where idbarang='$idb'");
+    $dataMasuk = mysqli_fetch_array($cekMasuk);
+    $qtyMasuk = $dataMasuk['qty'];
+
+    $qtybaru = $qty + $qtyMasuk;
+    $update = mysqli_query($conn, "update masuk set qty='$qtybaru' where idbarang='$idb'");
+    
+    if ($hapus) {
+        header('location:barang-keluar.php');
+    } else {
+        echo 'Gagal';
+        header('location:barang-keluar.php');
+    }
+};
 
 // ======================================================================================================================
 /* CHECKOUT PEMESANAN */
